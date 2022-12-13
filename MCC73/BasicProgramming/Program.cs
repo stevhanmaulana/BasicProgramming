@@ -7,10 +7,11 @@ public class Program
         string ulang;
         do
         {
-            string nama, jurusan, jalur;
+            string nama, jurusan;
+            int jalur;
             double NIM;
             float uangkuliah, bayar, pengembalian;
-
+            string[] jalurArr = { "SNMPTN", "SBMPTN", "MANDIRI" };
 
             Mahasiswa mahasiswa = new Mahasiswa();
             Console.Write("Nama Mahasiswa  : ");
@@ -39,31 +40,40 @@ public class Program
                     break;
             }
 
-            Console.Write("Jalur masuk (SNMPTN/SBMPTN/Mandiri)  : ");
-            jalur = (Console.ReadLine());
+            Console.WriteLine("Pilih Jalur : ");
+            for (int i = 0; i < jalurArr.Length; i++)
+            {
+                int no = i + 1;
+                Console.WriteLine(no + ". " + jalurArr[i]);
+            }
+            jalur = Convert.ToInt32(Console.ReadLine());
             switch (jalur)
             {
-                case "SNMPTN":
+                case 1:
+                    Console.WriteLine("Jalur Yang Anda Pilih SNMPTN");
                     Console.WriteLine("Uang Kuliah per semester = RP 2000000");
                     uangkuliah = 2000000;
                     Console.Write("Bayar  : ");
                     bayar = float.Parse(Console.ReadLine());
                     payment(uangkuliah, bayar);
                     break;
-                case "SBMPTN":
+                case 2:
+                    Console.WriteLine("Jalur Yang Anda Pilih SBMPTN");
                     Console.WriteLine("Uang Kuliah per semester = RP 3000000");
                     uangkuliah = 3000000;
                     Console.Write("Bayar  : ");
                     bayar = float.Parse(Console.ReadLine());
                     payment(uangkuliah, bayar);
                     break;
-                case "Mandiri":
+                case 3:
+                    Console.WriteLine("Jalur Yang Anda Pilih MANDIRI");
                     Console.WriteLine("Uang Kuliah per semester = RP 5000000");
                     uangkuliah = 5000000;
                     Console.Write("Bayar  : ");
                     bayar = float.Parse(Console.ReadLine());
                     payment(uangkuliah, bayar);
                     break;
+
                 default:
                     Console.WriteLine("Jalur masuk = Salah input");
                     break;
