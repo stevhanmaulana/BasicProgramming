@@ -48,27 +48,21 @@ public class Program
                     uangkuliah = 2000000;
                     Console.Write("Bayar  : ");
                     bayar = float.Parse(Console.ReadLine());
-                    pengembalian = bayar - uangkuliah;
-                    Console.WriteLine("Pengembalian : " + pengembalian);
-                    Console.WriteLine();
+                    payment(uangkuliah, bayar);
                     break;
                 case "SBMPTN":
                     Console.WriteLine("Uang Kuliah per semester = RP 3000000");
                     uangkuliah = 3000000;
                     Console.Write("Bayar  : ");
                     bayar = float.Parse(Console.ReadLine());
-                    pengembalian = bayar - uangkuliah;
-                    Console.WriteLine("Pengembalian : " + pengembalian);
-                    Console.WriteLine();
+                    payment(uangkuliah, bayar);
                     break;
                 case "Mandiri":
                     Console.WriteLine("Uang Kuliah per semester = RP 5000000");
                     uangkuliah = 5000000;
                     Console.Write("Bayar  : ");
                     bayar = float.Parse(Console.ReadLine());
-                    pengembalian = bayar - uangkuliah;
-                    Console.WriteLine("Pengembalian : " + pengembalian);
-                    Console.WriteLine();
+                    payment(uangkuliah, bayar);
                     break;
                 default:
                     Console.WriteLine("Jalur masuk = Salah input");
@@ -89,14 +83,17 @@ public class Program
         Console.ReadLine();
 
     }
-    public float pengembalian(float uangkuliah, float bayar)
+    public static void payment(float uangkuliah, float bayar)
     {
-        float pengembalian = uangkuliah - bayar;
-
-        return pengembalian;
-        if (bayar < uangkuliah) ;
+        float pengembalian = bayar - uangkuliah;
+        if (bayar < uangkuliah)
         {
-            Console.WriteLine("Uang anda kurang");
+            Console.WriteLine("Maaf Uang Anda Tidak Cukup!!");
+        }
+        else
+        {
+            Console.WriteLine("Pengembalian : " + pengembalian);
+            Console.WriteLine();
         }
     }
 
